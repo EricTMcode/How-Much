@@ -9,13 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        numberButton(number: "1")
+        
+    
+    }
+    
+    func numberButton(number: String) -> some View {
+        Button {
+            
+        } label: {
+            Text(number)
+                .font(.largeTitle)
+                .bold()
+                .frame(width: 80, height: 80)
+                .background(.purple)
+                .foregroundColor(.white)
+                .clipShape(Circle())
         }
-        .padding()
     }
 }
 
