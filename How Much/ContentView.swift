@@ -8,42 +8,78 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tipPct = 0
+    @State private var numPeople = 1
+    @State private var total = "0"
+    
     var body: some View {
-        VStack {
-            HStack {
-                ForEach(7...9, id: \.self) { number in
-                    numberButton(number: String(number))
+        NavigationStack {
+            VStack {
+                Text(total)
+                    .font(.system(size: 70))
+                    .frame(width: 260, alignment: .trailing)
+                    .padding(.vertical, 1)
+                            
+                HStack {
+                    ForEach(7...9, id: \.self) { number in
+                        numberButton(number: String(number))
+                    }
                 }
-            }
-            HStack {
-                ForEach(4...6, id: \.self) { number in
-                    numberButton(number: String(number))
+                HStack {
+                    ForEach(4...6, id: \.self) { number in
+                        numberButton(number: String(number))
+                    }
                 }
-            }
-            HStack {
-                ForEach(1...3, id: \.self) { number in
-                    numberButton(number: String(number))
+                HStack {
+                    ForEach(1...3, id: \.self) { number in
+                        numberButton(number: String(number))
+                    }
                 }
-            }
-            HStack {
-                numberButton(number: "0")
-                numberButton(number: ".")
-                Button {
-                    
-                } label: {
-                    Image(systemName: "delete.backward.fill")
-                        .font(.largeTitle)
-                        .bold()
-                        .frame(width: 80, height: 80)
-                        .background(.gray)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
+                HStack {
+                    numberButton(number: "0")
+                    numberButton(number: ".")
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "delete.backward.fill")
+                            .font(.largeTitle)
+                            .bold()
+                            .frame(width: 80, height: 80)
+                            .background(.gray)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                    }
                 }
-
+                HStack {
+                    Text("Tip")
+                    Picker("Picker", selection: $tipPct) {
+                        ForEach(0...100, id: \.self) { tip in
+                            Text("\(tip)%")
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                }
+                HStack {
+                    Text("Number of People")
+                    Picker("Number of People", selection: $numPeople) {
+                        ForEach(0...20, id: \.self) { numPeople in
+                            Text("\(numPeople)")
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                }
+                HStack {
+                    Button("Calculate") {
+                        
+                    }
+                    Button("Clear") {
+                        
+                    }
+                }
+                .buttonStyle(.borderedProminent)
             }
+            .navigationTitle("Portion Calculator")
         }
-        
-        
     }
     
     func numberButton(number: String) -> some View {
