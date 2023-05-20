@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var tipPct = 0
     @State private var numPeople = 1
-    @State private var total = "145.50"
+    @State private var total = "0"
     
     var body: some View {
         NavigationStack {
@@ -19,7 +19,7 @@ struct ContentView: View {
                     .font(.system(size: 70))
                     .frame(width: 260, alignment: .trailing)
                     .padding(.vertical, 1)
-                            
+                
                 HStack {
                     ForEach(7...9, id: \.self) { number in
                         numberButton(number: String(number))
@@ -83,9 +83,13 @@ struct ContentView: View {
         }
     }
     
+    func addDigit(_ number: String) {
+        total = total == "0" ? number : total + number
+    }
+    
     func numberButton(number: String) -> some View {
         Button {
-            
+            addDigit(number)
         } label: {
             Text(number)
                 .font(.largeTitle)
