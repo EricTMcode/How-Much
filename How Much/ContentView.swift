@@ -88,6 +88,10 @@ struct ContentView: View {
                     Button("Calculate") {
                         calculate = true
                     }
+                    .sheet(isPresented: $calculate) {
+                        TotalView(total: Double(total) ?? 0, tipPct: tipPct, numPeople: numPeople)
+                            .presentationDetents([.medium])
+                    }
                     Button("Clear") {
                         total = "0"
                     }

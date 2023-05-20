@@ -47,6 +47,10 @@ struct TotalView: View {
                     }
                 }
                 .font(.title)
+                
+                Image("myportion")
+                    .resizable()
+                    .scaledToFit()
                 Spacer()
             }
             .navigationTitle("Amount Owing")
