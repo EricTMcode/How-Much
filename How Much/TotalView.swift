@@ -51,6 +51,7 @@ struct TotalView: View {
                 Image("myportion")
                     .resizable()
                     .scaledToFit()
+                    .frame(width: 150)
                 Spacer()
             }
             .navigationTitle("Amount Owing")
