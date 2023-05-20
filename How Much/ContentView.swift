@@ -12,6 +12,21 @@ struct ContentView: View {
     @State private var numPeople = 1
     @State private var total = "0"
     
+    var canAddDecimal: Bool {
+//        let periods = total.filter({$0 == "."})
+//        if periods.count == 0 {
+//            return true
+//        } else {
+//            return false
+//        }
+        total.filter({$0 == "."}).count == 0 ? true : false
+    }
+    
+    var canAddDigit: Bool {
+        guard let decIndex = total.firstIndex(of: ".") else { return true }
+        let index = total.distance(from: total.startIndex, to: decIndex)
+        return (total.count - index - 1) < 2
+    }
     var body: some View {
         NavigationStack {
             VStack {
@@ -19,6 +34,8 @@ struct ContentView: View {
                     .font(.system(size: 70))
                     .frame(width: 260, alignment: .trailing)
                     .padding(.vertical, 1)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
                 
                 HStack {
                     ForEach(7...9, id: \.self) { number in
@@ -39,7 +56,11 @@ struct ContentView: View {
                     numberButton(number: "0")
                     numberButton(number: ".")
                     Button {
-                        
+                        if total.count == 1 {
+                            total = "0"
+                        } else {
+                            total.removeLast()
+                        }
                     } label: {
                         Image(systemName: "delete.backward.fill")
                             .font(.largeTitle)
@@ -84,7 +105,15 @@ struct ContentView: View {
     }
     
     func addDigit(_ number: String) {
-        total = total == "0" ? number : total + number
+        if canAddDigit {
+            if number == "." {
+                if canAddDecimal {
+                    total += number
+                }
+            } else {
+                total = total == "0" ? number : total + number
+            }
+        }
     }
     
     func numberButton(number: String) -> some View {
