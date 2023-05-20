@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var tipPct = 0
     @State private var numPeople = 1
-    @State private var total = "0"
+    @State private var total = "145.50"
     
     var body: some View {
         NavigationStack {
@@ -62,7 +62,7 @@ struct ContentView: View {
                 HStack {
                     Text("Number of People")
                     Picker("Number of People", selection: $numPeople) {
-                        ForEach(0...20, id: \.self) { numPeople in
+                        ForEach(1...20, id: \.self) { numPeople in
                             Text("\(numPeople)")
                         }
                     }
@@ -77,6 +77,7 @@ struct ContentView: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
+                Spacer()
             }
             .navigationTitle("Portion Calculator")
         }
@@ -100,5 +101,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .tint(.purple)
     }
 }
