@@ -11,6 +11,7 @@
 		077CF2A22A17BD4B00DFB8F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CF2A12A17BD4B00DFB8F8 /* ContentView.swift */; };
 		077CF2A42A17BD4D00DFB8F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077CF2A32A17BD4D00DFB8F8 /* Assets.xcassets */; };
 		077CF2A72A17BD4D00DFB8F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077CF2A62A17BD4D00DFB8F8 /* Preview Assets.xcassets */; };
+		077CF2AF2A18FA5F00DFB8F8 /* TotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077CF2AE2A18FA5F00DFB8F8 /* TotalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		077CF2A32A17BD4D00DFB8F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		077CF2A62A17BD4D00DFB8F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		077CF2AD2A17C9C300DFB8F8 /* How-Much-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "How-Much-Info.plist"; sourceTree = SOURCE_ROOT; };
+		077CF2AE2A18FA5F00DFB8F8 /* TotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				077CF2AD2A17C9C300DFB8F8 /* How-Much-Info.plist */,
 				077CF29F2A17BD4B00DFB8F8 /* How_MuchApp.swift */,
 				077CF2A12A17BD4B00DFB8F8 /* ContentView.swift */,
+				077CF2AE2A18FA5F00DFB8F8 /* TotalView.swift */,
 				077CF2A32A17BD4D00DFB8F8 /* Assets.xcassets */,
 				077CF2A52A17BD4D00DFB8F8 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				077CF2AF2A18FA5F00DFB8F8 /* TotalView.swift in Sources */,
 				077CF2A22A17BD4B00DFB8F8 /* ContentView.swift in Sources */,
 				077CF2A02A17BD4B00DFB8F8 /* How_MuchApp.swift in Sources */,
 			);

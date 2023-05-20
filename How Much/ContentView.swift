@@ -11,14 +11,9 @@ struct ContentView: View {
     @State private var tipPct = 0
     @State private var numPeople = 1
     @State private var total = "0"
+    @State private var calculate = false
     
     var canAddDecimal: Bool {
-//        let periods = total.filter({$0 == "."})
-//        if periods.count == 0 {
-//            return true
-//        } else {
-//            return false
-//        }
         total.filter({$0 == "."}).count == 0 ? true : false
     }
     
@@ -91,12 +86,13 @@ struct ContentView: View {
                 }
                 HStack {
                     Button("Calculate") {
-                        
+                        calculate = true
                     }
                     Button("Clear") {
-                        
+                        total = "0"
                     }
                 }
+                .disabled(Double(total) == 0)
                 .buttonStyle(.borderedProminent)
                 Spacer()
             }
